@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['/']">Student Event Platform</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="!(af.auth | async)" class="nav-link" [routerLink]="['/how-it-works']">How It Works</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/products']">Products</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/housing']">Housing</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/events']">Events</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/gigs']">Gigs</a>
+            </li>
+        </ul>
+        <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-product']" role="button">Add Product</a>
+        <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-housing']" role="button">Add Housing</a>
+        <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-event']" role="button">Add Event</a>
+        <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/add-gig']" role="button">Add Gig</a>
+        <a *ngIf="!(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']" role="button">Login</a>
+        <a *ngIf="(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" style="color:white;" (click)="logout()" role="button">Logout</a>
+        <a *ngIf="!(af.auth | async)" class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/register']" role="button">Register</a>
+        <li class="nav-item">
+            <a *ngIf="(af.auth | async)" [routerLink]="['/profile']" style="color:white;" class="btn btn-outline-secondary">
+                <img src="https://static1.squarespace.com/static/58fb0155d1758eec4bb612b0/t/5a662961f9619a1761ff4a30/1516644709050/Kevin+Wong+Potrait.jpg?format=300w" width=24px class="profile-image"> &nbsp;Profile</a>
+    </div>
+</nav>

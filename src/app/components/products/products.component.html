@@ -1,0 +1,39 @@
+<input type="text" (keydown)="search($event)" placeholder="Search products..." class="form-control">
+
+<div *ngIf="products?.length < 1">
+<hr>
+    <p>No results found :/</p>
+</div>
+
+<div *ngFor="let product of products" [routerLink]="[product.$key]">
+    <div ng-repeat="product in products">
+        <br>
+        <br>
+        <div class="media">
+          <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="128x128" class="mr-2 rounded" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/productImages%2F{{product.userId}}{{product.image}}?alt=media&token=086927bc-5ef4-4b9b-b9d2-d8c157725f43" data-holder-rendered="true" style="width: 256px; height: '100%';">
+          <div class="media-body pb-3 mb-0">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <a [routerLink]="['/product/'+product.$key]"><strong class="text">{{product.title}}</strong></a>
+              <strong>${{product.price}}</strong>
+              </div>
+              <div class="d-flex justify-content-between align-items-center w-100">
+                  <span>{{product.shortTitle}}</span>
+                  <span>{{product.payment}}</span>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div>
+              <small class="text"><i class="fas fa-location-arrow"></i> {{product.userLocation}}</small>
+            <br>
+              <small><i class="fas fa-angle-double-right"></i> {{product.listingType}}</small>
+            </div>
+        </div>
+    </div>
+</div>

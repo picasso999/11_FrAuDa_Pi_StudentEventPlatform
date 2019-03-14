@@ -1,0 +1,35 @@
+<input type="text" (keydown)="search($event)" placeholder="Search gigs..." class="form-control">
+
+<div *ngIf="gigs?.length < 1">
+<hr>
+    <p>No results found :/</p>
+</div>
+
+<div *ngFor="let gig of gigs" [routerLink]="[gig.$key]">
+    <div ng-repeat="gig in gigs">
+        <br>
+        <br>
+        <div class="media">
+          <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="128x128" class="mr-2 rounded" src="https://firebasestorage.googleapis.com/v0/b/dragonquad-32573.appspot.com/o/gigImages%2F{{gig.userId}}{{gig.image}}?alt=media&token=086927bc-5ef4-4b9b-b9d2-d8c157725f43" data-holder-rendered="true" style="width: 256px; height: '100%';">
+          <div class="media-body pb-3 mb-0">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <a [routerLink]="['/gig/'+gig.$key]"><strong class="text">{{gig.title}}</strong></a>
+              <strong>${{gig.price}}/hour</strong>
+              </div>
+              <div class="d-flex justify-content-between align-items-center w-100">
+                  <span>{{gig.shortTitle}}</span>
+                  <span>{{gig.payment}}</span>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div>
+              <small class="text"><i class="fas fa-location-arrow"></i> {{gig.location}}</small>
+            <br>
+              <small class="text"><i class="fas fa-angle-double-right"></i> {{gig.type}}</small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="form-container">
+    <a class="btn btn-secondary btn-sm" [routerLink]="['/login']" role="button"><i class="fas fa-angle-left"></i> Go Back</a>
+    <br>
+    <br>
+    <h2>Register</h2>
+    <br>
+    <span class="error" *ngIf="error"></span>
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+        <input type="text" placeholder="Email Address" (ngModel)="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@drexel.edu" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. You must use a @drexel.edu e-mail address.</small>
+        <br>
+        <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+        <small id="passwordHelp" class="form-text text-muted">Your password must contain at least one number, one uppercase letter, and at least 8 or more characters.</small>
+        <br>
+        <i class="fas fa-check" *ngIf="formData.valid" color="green"></i>&nbsp;<small *ngIf="formData.valid">You can now sign up!</small>
+        <br>
+        <button type="submit" [disabled]="!formData.valid" class="btn btn-success btn-sm"> Create Account</button>
+    </form>
+</div>

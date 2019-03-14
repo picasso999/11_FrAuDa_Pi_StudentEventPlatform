@@ -1,0 +1,38 @@
+<div *ngIf="listing">
+    <a class="btn btn-secondary btn-sm" [routerLink]="['/housing']" role="button"><i class="fas fa-angle-left"></i> Back</a>
+    <br>
+    <br>
+    <h2 class="page-header">{{listing.address}} &nbsp;&nbsp;<small>${{listing.price}}/month</small></h2>
+    <h4 class="page-header">{{listing.shortTitle}}</h4>
+    <h4 class="page-header">{{listing.address}}</h4>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <img style="width:100%" class="thumbnail" src="{{imageUrl}}">
+        </div>
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Type:</strong> {{listing.type}}</li>
+                <li class="list-group-item"><strong>Price:</strong> ${{listing.price}}/month</li>
+                <li class="list-group-item"><strong>Bedroom(s):</strong> {{listing.bedroom}}</li>
+                <li class="list-group-item"><strong>Bathroom(s):</strong> {{listing.bathroom}}</li>
+                <li class="list-group-item"><strong>Description:</strong> <br>
+            {{listing.description}}</li>
+                <li class="list-group-item"><strong>Map:</strong> <iframe
+                                                                          width="600"
+                                                                          height="450"
+                                                                          frameborder="0" style="border:0"
+                                                                          [src]="trustedMapUrl" allowfullscreen></iframe></li>
+                <li class="list-group-item"><strong>Address:</strong> {{listing.address}}</li>
+                <li class="list-group-item"><strong>Square Feet:</strong> {{listing.sqft}} sqft</li>
+                <li class="list-group-item"><strong>Date Available:</strong> {{listing.date}} - YYYY/MM/DD</li>
+                <br>
+                <div><a class="btn btn-primary btn-sm" style="color:white;" href="https://m.me/{{listing.messenger}}"><i class="fab fa-facebook-messenger"></i> Connect with @{{listing.messenger}} on Facebook Messenger</a></div>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+    <a class="btn btn-outline-primary" [routerLink]="['/edit-listing/'+listing.$key]">Edit</a>
+    <a (click)="onDeleteClick()" class="btn btn-outline-danger">Delete</a>
+</div>
